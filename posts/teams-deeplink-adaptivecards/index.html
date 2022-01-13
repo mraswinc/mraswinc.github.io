@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Teams - DeepLink in Adaptive Cards - Thinkering: Written Down</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://example.comfavicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.4b2bfb3701049fe0da3e8d6b9d15186ba1dc7e294f0be3e2bca21bb8a330f5dd.css">
+  
+
+  
+    
+    <meta property="og:title" content="Teams - DeepLink in Adaptive Cards"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://example.com/posts/teams-deeplink-adaptivecards/"/>
+    <meta property="og:image" content="https://example.com/posts/teams-deeplink-adaptivecards/adaptivecarddeeplink.png"/>
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@mraswinc"/>
+    <meta name="twitter:creator" content="@mraswinc"/>
+  
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+
+
+
+<body class='page page-blog-single'>
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <a class="header-logo" href="https://example.com">Thinkering: Written Down</a>
+  <div class="menu-main">
+    <ul>
+        
+        
+            <li class="menu-item-posts">
+                <a href="/posts/">Posts</a>
+            </li>
+        
+    </ul>
+  </div>
+</div>
+    
+  <div class="blog">
+    
+    <div class="intro">
+      <h1>Teams - DeepLink in Adaptive Cards<span class="dot">.</span></h1>
+      
+      <img src="/posts/teams-deeplink-adaptivecards/adaptivecarddeeplink.png" />
+      
+    </div>
+    <div class="content">
+      <h2 id="introduction">Introduction</h2>
+<p>In this post we&rsquo;ll be looking at how to create interactive card that allows you to create an adaptive card with deeplink buttons. One of the use case for this is that for eg: a chatbot sends you a notification with phone number and you would like to press on the button to make a call directly to that person. Same thing for a chat as well. Especially for Teams Mobile user.</p>
+<h2 id="what-is-adaptive-card">What is Adaptive Card?</h2>
+<p>When your API or a user send you a message in Teams, it is typically a normal text. How do we make it more interactive and prettier? Introducing <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/what-are-cards#adaptive-cards">Adaptive Cards</a> in Teams. It allows you to send a card lookalike with action buttons, images, list and many others just like a sample below. Important thing to note is that when Teams receive the adaptive cards schema as a json body, it translates it into adaptive card that we see below. We won&rsquo;t be going too deep into Adaptive Card (<em>idea for another post</em> 😉) There&rsquo;s many more samples and there is also editor available at <a href="https://adaptivecards.io/">adaptivecards.io</a>.</p>
+<p><img src="/posts/teams-deeplink-adaptivecards/adaptivecardsample.png" alt="adaptive-card-image-sample"></p>
+<h2 id="what-is-deeplink-in-teams">What is DeepLink in Teams?</h2>
+<p><a href="https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/deep-links">DeepLink</a> in Teams allows you to directly go into specific information and features within Teams. This is particular useful especially if you wanted to navigate directly to an app or a chat within Teams - or in our case - deeplink calling or chatting with a person.</p>
+<h2 id="lets-create-one-quickly-">Let&rsquo;s create one quickly 👉</h2>
+<p>One of the typical way to send adaptive card is using chatbot in Teams. However, as we won&rsquo;t be covering chatbot in this post, we&rsquo;ll be using another dev tool in Teams called <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/build-and-test/app-studio-overview">App Studio</a>.</p>
+<p>You need to go Apps section in Teams and download App Studio from there.</p>
+<p><img src="/posts/teams-deeplink-adaptivecards/appstudio.png" alt="appstudio"></p>
+<p>Once you open it up, there would be a few tabs and navigate to Card Editor. Click create a new card button.
+<img src="/posts/teams-deeplink-adaptivecards/appstudiocardeditor.png" alt="appstudio"></p>
+<p>You&rsquo;ll be presented with three choices of cards that you could create (<em>Hero Card,Thumbnail Card and Adaptive Card</em>). Choose Adaptive Card</p>
+<p><img src="/posts/teams-deeplink-adaptivecards/appstudiocardeditorcardtype.png" alt="appstudio"></p>
+<p>In this screen, you can rename the card as a reference of your left and in the middle you can see the schema of adaptive card. On the right side is the preview of the card itself. In order to embed deeplink in Adaptive Card, we&rsquo;ll be using <strong>Action.OpenUrl</strong> <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-actions?tabs=json">action type</a> for adaptive card and you just need to key in the deeplink url value in the url section. Example below on how you could place a Teams call to a user with his phone number 0123456789.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Action.OpenUrl&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Call Aswin&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://teams.microsoft.com/l/call/0/0?users=4:0123456789&#34;</span>
+<span class="p">}</span>
+</code></pre></div><p>Another example for chat:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Action.OpenUrl&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Chat with Aswin&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://teams.microsoft.com/l/chat/0/0?users=hello@mraswinc.com&#34;</span>
+<span class="p">}</span>
+</code></pre></div><p>Here&rsquo;s the full schema for the card that you have seen on top of the post:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&#34;$schema&#34;</span><span class="p">:</span> <span class="s2">&#34;https://adaptivecards.io/schemas/adaptive-card.json&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.2&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;AdaptiveCard&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;TextBlock&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Hi, this is adaptive card. \n\n You can embed deeplink into the button too. &#34;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&#34;actions&#34;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Action.OpenUrl&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Call Aswin&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://teams.microsoft.com/l/call/0/0?users=4:0123760350&#34;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;Action.OpenUrl&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Chat with Aswin&#34;</span><span class="p">,</span>
+            <span class="nt">&#34;url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://teams.microsoft.com/l/chat/0/0?users=hello@mraswinc.com&#34;</span>
+        <span class="p">}</span>        
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p><strong>Tips:</strong> use double \n to render next line in Adaptive card. Like this &ldquo;\n\n&rdquo;</p>
+</blockquote>
+<p>Just click send me this card and App Studio chatbot will be sending you the card right away.
+<img src="/posts/teams-deeplink-adaptivecards/adaptivecarddeeplinkeditor.png" alt="appstudio"></p>
+<p>You can try pressing on the call button or chat button. You need to have a calling plan in Teams to do this. 
+<img src="/posts/teams-deeplink-adaptivecards/adaptivecarddeeplinkcall.png" alt="appstudio"></p>
+<p>That&rsquo;s it for today! If you like this post, why not buy me a coffee? Thank you!</p>
+<blockquote>
+<p><strong>Quote of the day:</strong> You renew yourself every day. Sometimes you&rsquo;re successful, sometimes your not, but it&rsquo;s the average that counts. <em>Satya Nadella, CEO of Microsoft</em></p>
+</blockquote>
+
+    </div>
+  </div>
+
+    <div class="footer">
+  
+  <div class="footer-social">
+    
+      <span class="social-icon social-icon-twitter">
+        <a href="https://twitter.com/mraswinc" title="twitter" target="_blank" rel="noopener">
+          <img src="/images/social/twitter.svg" width="24" height="24" alt="twitter"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-github">
+        <a href="https://github.com/mraswinc" title="github" target="_blank" rel="noopener">
+          <img src="/images/social/github.svg" width="24" height="24" alt="github"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-linkedin">
+        <a href="https://www.linkedin.com/in/mraswinc/" title="linkedin" target="_blank" rel="noopener">
+          <img src="/images/social/linkedin.svg" width="24" height="24" alt="linkedin"/>
+        </a>
+      </span>
+    
+  </div>
+  
+</div>
+  </div>
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/bundle.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  
+
+  
+  
+
+  
+  
+  
+    
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128193053-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-128193053-1');
+      </script>
+    
+  
+
+
+</body>
+</html>

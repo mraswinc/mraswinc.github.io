@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A place on Thinkering: Written Down</title>
-    <link>https://example.com/</link>
+    <link>https://mraswinc.com/</link>
     <description>Recent content in A place on Thinkering: Written Down</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Nov 2021 22:35:03 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Nov 2021 22:35:03 +0800</lastBuildDate><atom:link href="https://mraswinc.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Teams - DeepLink in Adaptive Cards</title>
-      <link>https://example.com/posts/teams-deeplink-adaptivecards/</link>
+      <link>https://mraswinc.com/posts/teams-deeplink-adaptivecards/</link>
       <pubDate>Sat, 20 Nov 2021 22:35:03 +0800</pubDate>
       
-      <guid>https://example.com/posts/teams-deeplink-adaptivecards/</guid>
+      <guid>https://mraswinc.com/posts/teams-deeplink-adaptivecards/</guid>
       <description>Introduction In this post we&amp;rsquo;ll be looking at how to create interactive card that allows you to create an adaptive card with deeplink buttons. One of the use case for this is that for eg: a chatbot sends you a notification with phone number and you would like to press on the button to make a call directly to that person. Same thing for a chat as well. Especially for Teams Mobile user.</description>
     </item>
     

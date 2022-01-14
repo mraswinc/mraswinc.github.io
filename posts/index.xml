@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mraswinc.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Teams - Debugging Tab</title>
+      <link>https://mraswinc.com/posts/teams-debugging-tab/</link>
+      <pubDate>Mon, 20 Dec 2021 11:56:52 +0800</pubDate>
+      
+      <guid>https://mraswinc.com/posts/teams-debugging-tab/</guid>
+      <description>Introduction Teams Tab is one of the integration point in Microsoft Teams. It allows a website to be embedded as iframe that was declared in Teams app manifest. It can be added as personal tab, group chat or channels tab inside a team. The tab could also be Teams-context aware using Teams JS SDK.
+In this post, I wanted to share about how do you use various common tools to debug Teams Tab application.</description>
+    </item>
+    
+    <item>
       <title>Teams - DeepLink in Adaptive Cards</title>
       <link>https://mraswinc.com/posts/teams-deeplink-adaptivecards/</link>
       <pubDate>Sat, 20 Nov 2021 22:35:03 +0800</pubDate>

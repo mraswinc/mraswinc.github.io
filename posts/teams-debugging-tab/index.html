@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Teams - Debugging Tab - Thinkering: Written Down</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://mraswinc.comfavicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.4b2bfb3701049fe0da3e8d6b9d15186ba1dc7e294f0be3e2bca21bb8a330f5dd.css">
+  
+
+  
+    
+    <meta property="og:title" content="Teams - Debugging Tab"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://mraswinc.com/posts/teams-debugging-tab/"/>
+    <meta property="og:image" content="https://mraswinc.com/posts/teams-debugging-tab/debuggingdesktopopendevtools.png"/>
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@mraswinc"/>
+    <meta name="twitter:creator" content="@mraswinc"/>
+  
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+
+
+
+
+<body class='page page-blog-single'>
+  <div id="wrapper" class="wrapper">
+    <div class='header'>
+  <a class="header-logo" href="https://mraswinc.com">Thinkering: Written Down</a>
+  <div class="menu-main">
+    <ul>
+        
+        
+            <li class="menu-item-posts">
+                <a href="/posts/">Posts</a>
+            </li>
+        
+    </ul>
+  </div>
+</div>
+    
+  <div class="blog">
+    
+    <div class="intro">
+      <h1>Teams - Debugging Tab<span class="dot">.</span></h1>
+      
+      <img src="/posts/teams-debugging-tab/debuggingdesktopopendevtools.png" />
+      
+    </div>
+    <div class="content">
+      <h2 id="introduction">Introduction</h2>
+<p>Teams Tab is one of the integration point in Microsoft Teams. It allows a website to be embedded as iframe that was declared in Teams app manifest. It can be added as personal tab, group chat or channels tab inside a team. The tab could also be Teams-context aware using <a href="https://docs.microsoft.com/en-us/javascript/api/overview/msteams-client?view=msteams-client-js-latest">Teams JS SDK</a>.</p>
+<p>In this post, I wanted to share about how do you use various common tools to debug Teams Tab application.</p>
+<h2 id="web-developer-tools-edgechrome">Web Developer Tools (Edge/Chrome)</h2>
+<p>You can open up Teams in your favourite browser of choice especially Edge 😉. Press on F12 and you get access to the developer tools. As usual, navigate to your Teams Tab app and start capturing/viewing the logs.</p>
+<blockquote>
+<p>Make sure you select the right container, in my case it was embedded-page-container (tab).</p>
+</blockquote>
+<p><img src="/posts/teams-debugging-tab/debuggingtabwebtool.png" alt="teams debugging tab on web"></p>
+<h2 id="devtools-on-desktop-windowsmacos">DevTools on Desktop (Windows/MacOS)</h2>
+<p>You can also use Teams Desktop to debug your application.</p>
+<ul>
+<li>Turn on Developer Preview in Teams</li>
+</ul>
+<p><img src="/posts/teams-debugging-tab/debuggingdesktopdevpreview.png" alt="teams debugging desktop dev preview"></p>
+<ul>
+<li>Right-click Microsoft Teams icon in the desktop tray and click Open DevTools</li>
+</ul>
+<p><img src="/posts/teams-debugging-tab/debuggingdesktopopendevtools.png" alt="teams debugging desktop open devtools"></p>
+<ul>
+<li>It will launch two new DevTools Windows. One is for the main window and the other one for your tab application and you can debug as usual (it is the same developer tools in Edge/Chrome).</li>
+</ul>
+<blockquote>
+<p>Make sure you select the right container, in my case it was extension-tab-frame (tab).</p>
+</blockquote>
+<p><img src="/posts/teams-debugging-tab/debuggingdesktopdevtool.png" alt="teams debugging desktop devtool"></p>
+<h2 id="devtools-on-android">DevTools on Android</h2>
+<p>You can also debug your tab app that you deploy in Teams Mobile app. As the tab app has been sideloaded, you can view your app as usual. For debugging the app in Android, you can use the remote debugging feature in Edge/Chrome. For more details, please follow the steps outlined <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/tabs/how-to/developer-tools#access-devtools-from-an-android-device">here</a>.</p>
+<h2 id="the-end">The end</h2>
+<p>That&rsquo;s it for today! If you like this post and if you wanted to buy me Kopi (aka Coffee in Malay language), let me know! Thank you!</p>
+<blockquote>
+<p><strong>Quote of the day:</strong> Your most unhappy customers are your greatest source of learning. <em>Bill Gates, Co-Founder of Microsoft and Gates Foundation</em></p>
+</blockquote>
+
+    </div>
+  </div>
+
+    <div class="footer">
+  
+  <div class="footer-social">
+    
+      <span class="social-icon social-icon-twitter">
+        <a href="https://twitter.com/mraswinc" title="twitter" target="_blank" rel="noopener">
+          <img src="/images/social/twitter.svg" width="24" height="24" alt="twitter"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-github">
+        <a href="https://github.com/mraswinc" title="github" target="_blank" rel="noopener">
+          <img src="/images/social/github.svg" width="24" height="24" alt="github"/>
+        </a>
+      </span>
+    
+      <span class="social-icon social-icon-linkedin">
+        <a href="https://www.linkedin.com/in/mraswinc/" title="linkedin" target="_blank" rel="noopener">
+          <img src="/images/social/linkedin.svg" width="24" height="24" alt="linkedin"/>
+        </a>
+      </span>
+    
+  </div>
+  
+</div>
+  </div>
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/bundle.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+  
+
+  
+  
+
+  
+  
+  
+    
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128193053-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-128193053-1');
+      </script>
+    
+  
+
+
+</body>
+</html>
